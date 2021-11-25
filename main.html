@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css">
+    <title>HTML/CSS Documentation</title>
+    <script>
+        function openTab(evt, tabName) {
+
+            let i, tabButtons;
+            document.getElementById("content-frame").src = tabName + ".html";
+
+            tabButtons = document.getElementsByClassName("nav-button");
+            for (i = 0; i < tabButtons.length; i++) {
+                tabButtons[i].className = tabButtons[i].className.replace(" active", "");
+            }
+            evt.currentTarget.className += " active";
+        }
+        function iframeLoaded() {
+            let iFrameID = document.getElementById('content-frame');
+            if(iFrameID) {
+                iFrameID.height = "";
+                iFrameID.height = (iFrameID.contentWindow.document.body.scrollHeight + 20) + "px";
+            }
+        }
+    </script>
+</head>
+<body>
+<div class="navigation">
+
+    <a>HTML/CSS Documentation</a>
+    <div style="padding-top: 10px">
+        <button class="nav-button active" onclick="openTab(event,'TAB1')">TAB1</button>
+        <button class="nav-button" onclick="openTab(event,'TAB2')">TAB2</button>
+        <button class="nav-button" onclick="openTab(event,'TAB3')">TAB3</button>
+    </div>
+</div>
+<div>
+    <iframe src="TAB1.html" id="content-frame" onload="iframeLoaded()"></iframe>
+</div>
+</body>
+</html>
