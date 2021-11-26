@@ -1,7 +1,4 @@
-+ Introduction
-    + HTML Document structure
 + Basics
-    + DOCTYPE Declaration
     + Headings
     + Paragraphs
     + Links

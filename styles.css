@@ -1,28 +1,41 @@
-body{
+body {
     background-color: #333333;
     font-family: Consolas, monospace;
+}
+body h2{
+    font-family: inherit;
+    color: white;
+    padding-left: 20px;
+}
+.header{
+    font-family: inherit;
+    color: white;
+    padding-left: 20px;
+}
+.example-block{
+    width: 100%;
+    background-color: #232323;
+    color: white;
+    padding: 5px 0 5px 5px;
+    margin-left: 40px;
 }
 ul {
     list-style-type: square;
     color: white;
     text-align: justify;
+    font-size: 18px;
 }
 .navigation {
     width: 100%;
-    height: 100px;
+    height: 50px;
     position: fixed;
+    transition: 0.2s;
     z-index: 1;
     top: 0;
     background-color: #333;
     overflow: hidden;
     padding-bottom: 10px;
-    padding-top: 5px;
-    margin-top: 10px;
-}
-.navigation a {
-    font-size: 40px;
-    font-family: inherit;
-    color: white;
+    margin-top: 50px;
 }
 .navigation button {
     background-color: #444343;
@@ -40,17 +53,31 @@ ul {
     color: black;
 }
 .navigation button.active {
-    background-color: #048690;
+    background-color: #18a1ac;
     color: white;
 }
 .code-block div{
     border: 1px solid gray;
     padding: 5px;
 }
+.marked-text {
+    color: #18a1ac;
+    background-color: #282828;
+    font-weight: bold;
+}
 #content-frame {
     border: none;
     width: 100%;
-    padding-top: 120px;
+    padding-top: 50px;
     overflow: hidden;
 }
-
+::-webkit-scrollbar {
+    width: 10px;
+    background: #444343;
+}
+::-webkit-scrollbar-thumb {
+    background: #acacac;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #818181;
+}
