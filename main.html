@@ -15,7 +15,7 @@
         }
         function openTab(evt, tabName) {
             let i, tabButtons;
-            document.getElementById("content-frame").src = tabName + ".html";
+            document.getElementById("content-frame").src = "tabs/" + tabName + ".html";
 
             tabButtons = document.getElementsByClassName("nav-button");
             for (i = 0; i < tabButtons.length; i++) {
@@ -34,17 +34,20 @@
 </head>
 <body>
 <a style="font-size: 40px; color: white; font-family: inherit">HTML Documentation
-    <span style="font-size: 20px;"> by <span style="color: #18a1ac">Ege Altıok</span> (no rights reserved)</span></a>
+    <span style="font-size: 20px;">by
+        <a style="color: #18a1ac; font-size: 25px;"
+           href="https://github.com/DefinitelyVixon/SE480-Homework" target="_blank">Ege Altıok</a> (no rights reserved)
+    </span>
+</a>
 <div class="navigation" id="navbar">
     <div style="padding-top: 10px">
         <button class="nav-button active" onclick="openTab(event,'Introduction')">Introduction</button>
-        <button class="nav-button" onclick="openTab(event,'TAB2')">TAB2</button>
-        <button class="nav-button" onclick="openTab(event,'TAB3')">TAB3</button>
         <button class="nav-button" onclick="openTab(event,'Basics')">Basics</button>
+        <button class="nav-button" onclick="openTab(event,'Attributes')">Attributes</button>
     </div>
 </div>
 <div>
-    <iframe src="Introduction.html" id="content-frame" onload="iframeLoaded()"></iframe>
+    <iframe src="tabs/Introduction.html" id="content-frame" onload="iframeLoaded()"></iframe>
 </div>
 </body>
 </html>
