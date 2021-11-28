@@ -5,9 +5,8 @@
     <link rel="stylesheet" href="styles.css">
     <title>HTML Documentation</title>
     <script>
+        let isFirstLoad = true;
         window.onscroll = function() {scrollFunction()};
-        // document.getElementById("content-frame").addEventListener("load",
-        //    function(){createSubsections(document.getElementById("navbar"), 0)});
 
         function scrollFunction() {
             if (document.body.scrollTop > 40 || document.documentElement.scrollTop > 40) {
@@ -17,21 +16,16 @@
             }
         }
         function openTab(evt, tabName) {
-            let i, tabButtons, tabIndex;
-            tabButtons = document.getElementsByClassName("nav-button");
+            let i;
+            let tabButtons = document.getElementsByClassName("nav-button");
             let clickedTab = evt.currentTarget.textContent;
 
             // If clicked on a main tab
             if ((clickedTab === "Introduction" || clickedTab === "Basics" || clickedTab === "Attributes" ||
                 clickedTab === "Elements")
                 && evt.currentTarget.className !== "nav-button active"){
-
-                let parent = document.getElementById("navbar");
-                document.getElementById("content-frame").src = "tabs/" + tabName + ".html";
-
                 let toBeDeleted = [];
                 for (i = 0; i < tabButtons.length; i++) {
-
                     tabButtons[i].className = tabButtons[i].className.replace(" active", "");
                     if (tabButtons[i].textContent !== "Introduction" && tabButtons[i].textContent !== "Basics" &&
                         tabButtons[i].textContent !== "Attributes" && tabButtons[i].textContent !== "Elements"){
@@ -41,23 +35,34 @@
                 for (i = 0; i < toBeDeleted.length; i++){
                     toBeDeleted[i].remove();
                 }
+                evt.currentTarget.className += " active";
+                document.getElementById("content-frame").src = "tabs/" + tabName + ".html";
+            }
+            /* If clicked on a subsection
+            else {}
+            */
+        }
+        function createSubsections(evt){
+            let contentFrame = document.getElementById('content-frame');
+            contentFrame.height = "";
+            contentFrame.height = (contentFrame.contentWindow.document.body.scrollHeight + 20) + "px";
+
+            let tabButtons = document.getElementsByClassName("nav-button");
+            let tabIndex;
+            if (isFirstLoad){
+                tabIndex = 0;
+                isFirstLoad = false;
+            }
+            else {
                 for (i = 0; i < tabButtons.length; i++) {
-                    if (tabButtons[i].textContent === clickedTab){
+                    if (tabButtons[i].textContent === evt.currentTarget.textContent){
                         tabIndex = i;
                         break;
                     }
                 }
-                evt.currentTarget.className += " active";
-
-                createSubsections(parent, tabIndex);
             }
-            // If clicked on a subsection
-
-        }
-        function createSubsections(parent, tabIndex){
-
+            let i, parent = document.getElementById("navbar");
             let subsections = document.getElementById("content-frame").contentWindow.document.getElementsByTagName("H2");
-            let i;
             for (i = subsections.length - 1; i >= 0; i--){
                 let button = document.createElement('button');
                 button.setAttribute('class', 'nav-button');
@@ -65,14 +70,6 @@
                 button.setAttribute('style', 'background-color:#b4b4b4; color:#212121;');
                 button.textContent = subsections[i].innerHTML;
                 parent.insertBefore(button, parent.children[tabIndex+1]);
-            }
-            document.getElementById("test").innerHTML = document.getElementById("content-frame").contentWindow.document.getElementsByTagName("H2")[0].innerHTML;
-        }
-        function iframeLoaded() {
-            let iFrameID = document.getElementById('content-frame');
-            if(iFrameID) {
-                iFrameID.height = "";
-                iFrameID.height = (iFrameID.contentWindow.document.body.scrollHeight + 20) + "px";
             }
         }
     </script>
@@ -91,7 +88,7 @@
     <button class="nav-button" onclick="openTab(event,'Elements')">Elements</button>
 </div>
 <div>
-    <iframe src="tabs/Introduction.html" id="content-frame" onload="iframeLoaded()"></iframe>
+    <iframe src="tabs/Introduction.html" id="content-frame" onload="createSubsections(event)"></iframe>
 </div>
 </body>
 </html>
