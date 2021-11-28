@@ -14,14 +14,36 @@
             }
         }
         function openTab(evt, tabName) {
-            let i, tabButtons;
-            document.getElementById("content-frame").src = "tabs/" + tabName + ".html";
+            let i, tabButtons, tabIndex;
 
             tabButtons = document.getElementsByClassName("nav-button");
-            for (i = 0; i < tabButtons.length; i++) {
-                tabButtons[i].className = tabButtons[i].className.replace(" active", "");
+
+            //document.getElementById("test").innerHTML = evt.currentTarget.className;  For Testing
+
+            let clickedTab = evt.currentTarget.textContent;
+            // If clicked on a main tab
+            if ((clickedTab === "Introduction" || clickedTab === "Basics" || clickedTab === "Attributes")
+                && evt.currentTarget.className !== "nav-button active"){
+
+                document.getElementById("content-frame").src = "tabs/" + tabName + ".html";
+
+                for (i = 0; i < tabButtons.length; i++) {
+                    tabButtons[i].className = tabButtons[i].className.replace(" active", "");
+
+                    if (tabButtons[i].textContent === evt.currentTarget.textContent){
+                        tabIndex = i;
+                    }
+                }
+                evt.currentTarget.className += " active";
+                let button = document.createElement('button');
+                let parent = document.getElementById("navbar");
+                button.setAttribute('class', 'nav-button');
+                button.setAttribute('onclick', "openTab(event, 'Subsection')")
+                button.textContent = "Subsection";
+                parent.insertBefore(button, parent.children[tabIndex+1]);
             }
-            evt.currentTarget.className += " active";
+            // If clicked on a subsection
+
         }
         function iframeLoaded() {
             let iFrameID = document.getElementById('content-frame');
@@ -33,18 +55,16 @@
     </script>
 </head>
 <body>
-<a style="font-size: 40px; color: white; font-family: inherit">HTML Documentation
+<a id="test" style="font-size: 40px; color: white; font-family: inherit">HTML Documentation
     <span style="font-size: 20px;">by
         <a style="color: #18a1ac; font-size: 25px;"
            href="https://github.com/DefinitelyVixon/SE480-Homework" target="_blank">Ege Altıok</a> (no rights reserved)
     </span>
 </a>
-<div class="navigation" id="navbar">
-    <div style="padding-top: 10px">
-        <button class="nav-button active" onclick="openTab(event,'Introduction')">Introduction</button>
-        <button class="nav-button" onclick="openTab(event,'Basics')">Basics</button>
-        <button class="nav-button" onclick="openTab(event,'Attributes')">Attributes</button>
-    </div>
+<div class="navigation" id="navbar" style="padding-top: 5px">
+    <button class="nav-button active" onclick="openTab(event,'Introduction')">Introduction</button>
+    <button class="nav-button" onclick="openTab(event,'Basics')">Basics</button>
+    <button class="nav-button" onclick="openTab(event,'Attributes')">Attributes</button>
 </div>
 <div>
     <iframe src="tabs/Introduction.html" id="content-frame" onload="iframeLoaded()"></iframe>

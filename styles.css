@@ -1,7 +1,7 @@
 body {
     width: 90%;
     background-color: #333333;
-    font-family: Consolas, monospace;
+    font-family: "Consolas", monospace;
     color: white;
 }
 body h2{
@@ -13,6 +13,22 @@ ul {
     color: white;
     text-align: justify;
     font-size: 18px;
+}
+table{
+    border-spacing: 2px;
+    padding-right: 5px;
+    text-indent: 5px;
+    text-align: justify;
+    width: 100%;
+}
+tr a {
+    color: #18a1ac;
+}
+th {
+    border-bottom: 2px solid white;
+}
+tr:nth-child(even) {
+    background-color: #5a5a5a;
 }
 .header{
     font-family: inherit;
@@ -72,7 +88,7 @@ ul {
 #content-frame {
     border: none;
     width: 90%;
-    padding-top: 50px;
+    padding-top: 40px;
     overflow: hidden;
 }
 ::-webkit-scrollbar {

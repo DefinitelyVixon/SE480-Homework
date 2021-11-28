@@ -8,10 +8,69 @@
 <body style="overflow: hidden">
 
 <h2>lang Attribute</h2>
+<ul>
+    <li><span class="marked-text">lang</span> attribute is required to declare the language of the Web page inside the
+        <span class="marked-text">&lt;html&gt;</span> tag.</li>
+    <li>This is meant to assist search engines and browsers.</li>
+</ul>
+<div class="example-block">
+<pre style="font-size: 16px; padding-left: 10px;">
+&lt;!DOCTYPE html>
+&lt;html <span class="marked-text">lang</span>="en">
+&lt;body>
+...
+&lt;/body>
+&lt;/html></pre>
+</div>
 
 <h2>title Attribute</h2>
+<ul>
+    <li><span class="marked-text">title</span> attribute defines some extra information about an element.</li>
+</ul>
+<div class="example-block">
+    <p>&lt;p <span class="marked-text">title</span>="I'm a tooltip"&gt;This is a paragraph.&lt;/p&gt;</p>
+</div>
 
 <h2>style Attribute</h2>
+<ul>
+    <li><span class="marked-text">style</span> attribute is used to add styles to an element, such as color, font, size, and more.</li>
+</ul>
+<div class="example-block">
+    <table>
+        <tr>
+            <th>Property</th>
+            <th>Values</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>background-color</td>
+            <td>color name or hex code</td>
+            <td>Defines the background color for an HTML element</td>
+        </tr>
+        <tr>
+            <td>color</td>
+            <td>color name or hex code</td>
+            <td>Defines the text color for an HTML element</td>
+        </tr>
+        <tr>
+            <td>font-family</td>
+            <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/font-family#syntax"
+                   target="_blank">family-name and generic-name</a></td>
+            <td>Defines the font to be used for an HTML element</td>
+        </tr>
+        <tr>
+            <td>font-size</td>
+            <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/length#syntax">integer value with length units</a> or
+                <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/length-percentage#syntax">length-percentage</a></td>
+            <td>Defines the text size for an HTML element</td>
+        </tr>
+        <tr>
+            <td>text-align</td>
+            <td>start, end, left, right, center, justify, match-parent</td>
+            <td>Defines the horizontal text alignment for an HTML element</td>
+        </tr>
+    </table>
+</div>
 
 <h2>href Attribute</h2>
 <ul>
@@ -26,8 +85,20 @@
   <li><span class="marked-text">src</span> attribute specifies the path to the image to be displayed in <span class="marked-text">&lt;img&gt;</span> tag.</li>
 </ul>
 <div class="example-block">
-  <p>&lt;img <span class="marked-text">src</span>="img_girl.jpg"&gt;</p>
+  <p>&lt;img <span class="marked-text">src</span>="img.jpg"&gt;</p>
 </div>
+
+<h2>width and height Attributes</h2>
+<ul>
+    <li>The <span class="marked-text">&lt;img&gt;</span> tag should also contain the <span class="marked-text">width</span>
+        and <span class="marked-text">height</span> attributes, which specifies the width and height of the image in pixels.</li>
+</ul>
+<div class="example-block">
+    <p>&lt;img <span class="marked-text">src</span>="img.jpg"
+        <span class="marked-text">width</span>="1080"
+        <span class="marked-text">height</span>="720"&gt;</p>
+</div>
+
 
 <h2>alt Attribute</h2>
 <ul>
@@ -35,9 +106,8 @@
     reason cannot be displayed. This can be due to slow connection, or an error in the <span class="marked-text">src</span> attribute, or if the user uses a screen reader.</li>
 </ul>
 <div class="example-block">
-  <p>&lt;img src="img_typo.jpg" <span class="marked-text">alt</span>="Girl with a jacket"&gt;</p>
+  <p>&lt;img src="image.jpg" <span class="marked-text">alt</span>="alternative text"&gt;</p>
 </div>
-
 
 </body>
 </html>
