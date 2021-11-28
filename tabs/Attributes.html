@@ -5,16 +5,78 @@
     <link rel="stylesheet" href="../styles.css">
     <title>Attributes</title>
 </head>
-<body style="overflow: hidden">
+<body> <!--  style="overflow: hidden"-->
 
-<h2>lang Attribute</h2>
+<h2>class</h2>
+<ul>
+    <li>The <span class="marked-text">class</span> attribute is often used to point to a class name in a style sheet. It can also be used by a JavaScript to access and manipulate elements with the specific class name.</li>
+    <li>In the following example we have a <span class="marked-text">&lt;div&gt;</span> element with a class attribute with the value of "city".</li>
+    <li>The <span class="marked-text">&lt;div&gt;</span> element will be styled equally according to the <span class="marked-text">.city</span> style definition in the head section:</li>
+</ul>
+<div class="example-block">
+<pre>
+&lt;!DOCTYPE html>
+&lt;html>
+&lt;head>
+&lt;style>
+<span class="marked-text">.city</span> {
+    background-color: tomato;
+    color: white;
+    border: 2px solid black;
+    margin: 20px;
+    padding: 20px;
+}
+&lt;/style>
+&lt;/head>
+&lt;body>
+
+&lt;div <span class="marked-text">class="city"</span>>
+  &lt;h2>London&lt;/h2>
+    &lt;p>London is the capital of England.&lt;/p>
+&lt;/div>
+
+&lt;/body>
+&lt;/html>
+</pre>
+</div>
+
+<h2>id</h2>
+<ul>
+    <li>The <span class="marked-text">id</span> attribute specifies a unique id for an HTML element. The value of the id attribute must be unique within the HTML document.</li>
+    <li>The <span class="marked-text">id</span> attribute is used to point to a specific style declaration in a style sheet. It is also used by JavaScript to access and manipulate the element with the specific id.</li>
+    <li>The syntax for <span class="marked-text">id</span> is: write a hash character <span class="marked-text">(self)</span>, followed by an id name. Then, define the CSS properties within curly braces {}.</li>
+    <li>In the following example we have an <span class="marked-text">&lt;h1&gt;</span> element that points to the id name "myHeader". This &lt;h1> element will be styled according to the #myHeader style definition in the head section.</li>
+</ul>
+<div class="example-block">
+<pre>&lt;!DOCTYPE html>
+&lt;html>
+&lt;head>
+&lt;style>
+<span class="marked-text">#myHeader</span> {
+    background-color: lightblue;
+    color: black;
+    padding: 40px;
+    text-align: center;
+}
+&lt;/style>
+&lt;/head>
+&lt;body>
+
+&lt;h1 <span class="marked-text">id="myHeader"</span>>My Header&lt;/h1>
+
+&lt;/body>
+&lt;/html>
+</pre>
+</div>
+
+<h2>lang</h2>
 <ul>
     <li><span class="marked-text">lang</span> attribute is required to declare the language of the Web page inside the
         <span class="marked-text">&lt;html&gt;</span> tag.</li>
     <li>This is meant to assist search engines and browsers.</li>
 </ul>
 <div class="example-block">
-<pre style="font-size: 16px; padding-left: 10px;">
+<pre>
 &lt;!DOCTYPE html>
 &lt;html <span class="marked-text">lang</span>="en">
 &lt;body>
@@ -23,7 +85,7 @@
 &lt;/html></pre>
 </div>
 
-<h2>title Attribute</h2>
+<h2>title</h2>
 <ul>
     <li><span class="marked-text">title</span> attribute defines some extra information about an element.</li>
 </ul>
@@ -31,7 +93,7 @@
     <p>&lt;p <span class="marked-text">title</span>="I'm a tooltip"&gt;This is a paragraph.&lt;/p&gt;</p>
 </div>
 
-<h2>style Attribute</h2>
+<h2>style</h2>
 <ul>
     <li><span class="marked-text">style</span> attribute is used to add styles to an element, such as color, font, size, and more.</li>
 </ul>
@@ -60,8 +122,10 @@
         </tr>
         <tr>
             <td>font-size</td>
-            <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/length#syntax">integer value with length units</a> or
-                <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/length-percentage#syntax">length-percentage</a></td>
+            <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/length#syntax"
+                   target="_blank">integer value with length units</a> or
+                <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/length-percentage#syntax"
+                   target="_blank">length-percentage</a></td>
             <td>Defines the text size for an HTML element</td>
         </tr>
         <tr>
@@ -72,7 +136,7 @@
     </table>
 </div>
 
-<h2>href Attribute</h2>
+<h2>href</h2>
 <ul>
   <li><span class="marked-text">href</span> attribute specifies the target URL of the <span class="marked-text">&lt;a&gt;</span> tag.</li>
 </ul>
@@ -80,7 +144,7 @@
   <p>&lt;a <span class="marked-text">href</span>="https://www.w3schools.com"&gtVisit W3Schools&lt;/a&gt;</p>
 </div>
 
-<h2>src Attribute</h2>
+<h2>src</h2>
 <ul>
   <li><span class="marked-text">src</span> attribute specifies the path to the image to be displayed in <span class="marked-text">&lt;img&gt;</span> tag.</li>
 </ul>
@@ -88,7 +152,7 @@
   <p>&lt;img <span class="marked-text">src</span>="img.jpg"&gt;</p>
 </div>
 
-<h2>width and height Attributes</h2>
+<h2>width and height</h2>
 <ul>
     <li>The <span class="marked-text">&lt;img&gt;</span> tag should also contain the <span class="marked-text">width</span>
         and <span class="marked-text">height</span> attributes, which specifies the width and height of the image in pixels.</li>
@@ -99,7 +163,7 @@
         <span class="marked-text">height</span>="720"&gt;</p>
 </div>
 
-<h2>alt Attribute</h2>
+<h2>alt</h2>
 <ul>
   <li>The required <span class="marked-text">alt</span> attribute for the <span class="marked-text">&lt;img&gt;</span> tag specifies an alternate text for an image, if the image for some
     reason cannot be displayed. This can be due to slow connection, or an error in the <span class="marked-text">src</span> attribute, or if the user uses a screen reader.</li>

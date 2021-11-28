@@ -6,7 +6,8 @@
     <title>HTML Documentation</title>
     <script>
         window.onscroll = function() {scrollFunction()};
-        document.addEventListener("load", function(){createSubsections(document.getElementById("navbar"), 0)});
+        // document.getElementById("content-frame").addEventListener("load",
+        //    function(){createSubsections(document.getElementById("navbar"), 0)});
 
         function scrollFunction() {
             if (document.body.scrollTop > 40 || document.documentElement.scrollTop > 40) {
@@ -21,27 +22,33 @@
             let clickedTab = evt.currentTarget.textContent;
 
             // If clicked on a main tab
-            if ((clickedTab === "Introduction" || clickedTab === "Basics" || clickedTab === "Attributes")
+            if ((clickedTab === "Introduction" || clickedTab === "Basics" || clickedTab === "Attributes" ||
+                clickedTab === "Elements")
                 && evt.currentTarget.className !== "nav-button active"){
 
-                document.getElementById("content-frame").src = "tabs/" + tabName + ".html";
                 let parent = document.getElementById("navbar");
+                document.getElementById("content-frame").src = "tabs/" + tabName + ".html";
 
+                let toBeDeleted = [];
                 for (i = 0; i < tabButtons.length; i++) {
-                    tabButtons[i].className = tabButtons[i].className.replace(" active", "");
 
-                    if (!(tabButtons[i].textContent === "Introduction" ||
-                        tabButtons[i].textContent === "Basics" || tabButtons[i].textContent === "Attributes")){
-                        tabButtons[i].remove();
+                    tabButtons[i].className = tabButtons[i].className.replace(" active", "");
+                    if (tabButtons[i].textContent !== "Introduction" && tabButtons[i].textContent !== "Basics" &&
+                        tabButtons[i].textContent !== "Attributes" && tabButtons[i].textContent !== "Elements"){
+                        toBeDeleted.push(tabButtons[i]);
                     }
                 }
+                for (i = 0; i < toBeDeleted.length; i++){
+                    toBeDeleted[i].remove();
+                }
                 for (i = 0; i < tabButtons.length; i++) {
-                    if (tabButtons[i].textContent === evt.currentTarget.textContent){
+                    if (tabButtons[i].textContent === clickedTab){
                         tabIndex = i;
                         break;
                     }
                 }
                 evt.currentTarget.className += " active";
+
                 createSubsections(parent, tabIndex);
             }
             // If clicked on a subsection
@@ -50,9 +57,7 @@
         function createSubsections(parent, tabIndex){
 
             let subsections = document.getElementById("content-frame").contentWindow.document.getElementsByTagName("H2");
-            // document.getElementById("test").innerHTML = subsections;
             let i;
-
             for (i = subsections.length - 1; i >= 0; i--){
                 let button = document.createElement('button');
                 button.setAttribute('class', 'nav-button');
@@ -61,6 +66,7 @@
                 button.textContent = subsections[i].innerHTML;
                 parent.insertBefore(button, parent.children[tabIndex+1]);
             }
+            document.getElementById("test").innerHTML = document.getElementById("content-frame").contentWindow.document.getElementsByTagName("H2")[0].innerHTML;
         }
         function iframeLoaded() {
             let iFrameID = document.getElementById('content-frame');
@@ -79,12 +85,13 @@
     </span>
 </a>
 <div class="navigation" id="navbar" style="padding-top: 5px">
-    <button class="nav-button" onclick="openTab(event,'Introduction')">Introduction</button>
-    <button class="nav-button active" onclick="openTab(event,'Basics')">Basics</button>
+    <button class="nav-button active" onclick="openTab(event,'Introduction')">Introduction</button>
+    <button class="nav-button" onclick="openTab(event,'Basics')">Basics</button>
     <button class="nav-button" onclick="openTab(event,'Attributes')">Attributes</button>
+    <button class="nav-button" onclick="openTab(event,'Elements')">Elements</button>
 </div>
 <div>
-    <iframe src="tabs/Basics.html" id="content-frame" onload="iframeLoaded()"></iframe>
+    <iframe src="tabs/Introduction.html" id="content-frame" onload="iframeLoaded()"></iframe>
 </div>
 </body>
 </html>

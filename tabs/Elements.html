@@ -5,7 +5,134 @@
     <title>Elements</title>
     <link rel="stylesheet" href="../styles.css">
 </head>
-<body>
-    <a>Asdasd</a>
+<body style="overflow: hidden;">
+
+<h2>HTML Elements</h2>
+<ul>
+    <li>The HTML element is everything from the start tag to the end tag.</li>
+</ul>
+<div class="example-block">
+    <p>&lt;tagname&gt;Content goes here...&lt;/tagname&gt;</p>
+    <p>&lt;h1&gt;My First Heading&lt;/h1&gt;</p>
+    <p>&lt;p&gt;My first paragraph.&lt;/p&gt;</p>
+</div>
+<ul>
+    <li>Every HTML element has a default display value, depending on what type of element it is.</li>
+    <li>There are two display values: block and inline.</li>
+</ul>
+
+<h2>Block-level Elements</h2>
+<ul>
+    <li>A block-level element always starts on a new line.</li>
+    <li>A block-level element always takes up the full width available (stretches out to the left and right as far as it can).</li>
+    <li>A block level element has a top and a bottom margin, whereas an inline element does not.</li>
+    <li><div style="border: 2px solid #18a1ac; text-indent: 5px">The <span class="marked-text">&lt;div&gt;</span> element is a block-level element.</div></li>
+</ul>
+<h3 style="padding-left: 40px">div Element</h3>
+<ul>
+    <li>The <span class="marked-text">&lt;div&gt;</span> element is often used as a container for other HTML elements.</li>
+    <li>The <span class="marked-text">&lt;div&gt;</span> element has no required attributes, but style, class and id are common.</li>
+    <li>When used together with CSS, the <span class="marked-text">&lt;div&gt;</span> element can be used to style blocks of content:</li>
+</ul>
+<div class="example-block">
+<pre><span class="marked-text">&lt;div</span> style="background-color:black; color:white; padding:20px;"<span class="marked-text">&gt;</span>
+  &lt;h2&gt;London&lt;/h2&gt;
+  &lt;p&gt;London is the capital city of England.&lt;/p&gt;
+<span class="marked-text">&lt;/div&gt;</span></pre>
+</div>
+<p style="padding-left: 40px">All other block-level elements are:</p>
+<div class="example-block">
+    <div class="inline-code">&lt;address&gt;</div>
+    <div class="inline-code">&lt;article&gt;</div>
+    <div class="inline-code">&lt;aside&gt;</div>
+    <div class="inline-code">&lt;blockquote&gt;</div>
+    <div class="inline-code">&lt;canvas&gt;</div>
+    <div class="inline-code">&lt;dd&gt;</div>
+    <div class="inline-code">&lt;div&gt;</div>
+    <div class="inline-code">&lt;dl&gt;</div>
+    <div class="inline-code">&lt;dt&gt;</div>
+    <div class="inline-code">&lt;fieldset&gt;</div>
+    <div class="inline-code">&lt;figcaption&gt;</div>
+    <div class="inline-code">&lt;figure&gt;</div>
+    <div class="inline-code">&lt;footer&gt;</div>
+    <div class="inline-code">&lt;form&gt;</div>
+    <div class="inline-code">&lt;h1&gt;-&lt;h6&gt;</div>
+    <div class="inline-code">&lt;header&gt;</div>
+    <div class="inline-code">&lt;hr&gt;</div>
+    <div class="inline-code">&lt;li&gt;</div>
+    <div class="inline-code">&lt;main&gt;</div>
+    <div class="inline-code">&lt;nav&gt;</div>
+    <div class="inline-code">&lt;noscript&gt;</div>
+    <div class="inline-code">&lt;ol&gt;</div>
+    <div class="inline-code">&lt;p&gt;</div>
+    <div class="inline-code">&lt;pre&gt;</div>
+    <div class="inline-code">&lt;section&gt;</div>
+    <div class="inline-code">&lt;table&gt;</div>
+    <div class="inline-code">&lt;tfoot&gt;</div>
+    <div class="inline-code">&lt;ul&gt;</div>
+    <div class="inline-code">&lt;video&gt;</div>
+</div>
+
+<h2>Inline Elements</h2>
+<ul>
+    <li>An inline element does not start on a new line.</li>
+    <li>An inline element only takes up as much width as necessary.</li>
+    <li>The <span class="marked-text" style="border: 2px solid #18a1ac; text-indent: 5px">&lt;span&gt;</span> element is a inline element.</li>
+</ul>
+<h3 style="padding-left:40px">span Element</h3>
+<ul>
+    <li>The <span class="marked-text">&lt;span&gt;</span> element is an inline container used to mark up a part of a text, or a part of a document.</li>
+    <li>The <span class="marked-text">&lt;span&gt;</span> element has no required attributes, but style, class and id are common.</li>
+    <li>When used together with CSS, the <span class="marked-text">&lt;span&gt;</span> element can be used to style parts of the text:</li>
+</ul>
+<div class="example-block">
+    <p style="padding-left: 10px; font-size: 18px">&lt;p&gt;My mother has
+        <span class="marked-text">&lt;span</span>
+        style="color:hotpink;font-weight:bold"<span class="marked-text">&gt;</span>
+        pink <span class="marked-text">&lt;/span&gt;</span> eyes and my father has
+        <span class="marked-text">&lt;span</span>
+        style="color:darkred;font-weight:bold"<span class="marked-text">&gt;</span>
+        red <span class="marked-text">&lt;/span&gt;</span> eyes.&lt;/p&gt;
+    </p>
+</div>
+<p style="padding-left: 40px">All other inline elements are:</p>
+<div class="example-block">
+    <div class="inline-code">&lt;a&gt;</div>
+    <div class="inline-code">&lt;abbr&gt;</div>
+    <div class="inline-code">&lt;acronym&gt;</div>
+    <div class="inline-code">&lt;b&gt;</div>
+    <div class="inline-code">&lt;bdo&gt;</div>
+    <div class="inline-code">&lt;big&gt;</div>
+    <div class="inline-code">&lt;br&gt;</div>
+    <div class="inline-code">&lt;button&gt;</div>
+    <div class="inline-code">&lt;cite&gt;</div>
+    <div class="inline-code">&lt;code&gt;</div>
+    <div class="inline-code">&lt;dfn&gt;</div>
+    <div class="inline-code">&lt;em&gt;</div>
+    <div class="inline-code">&lt;i&gt;</div>
+    <div class="inline-code">&lt;img&gt;</div>
+    <div class="inline-code">&lt;input&gt;</div>
+    <div class="inline-code">&lt;kbd&gt;</div>
+    <div class="inline-code">&lt;label&gt;</div>
+    <div class="inline-code">&lt;map&gt;</div>
+    <div class="inline-code">&lt;object&gt;</div>
+    <div class="inline-code">&lt;output&gt;</div>
+    <div class="inline-code">&lt;q&gt;</div>
+    <div class="inline-code">&lt;samp&gt;</div>
+    <div class="inline-code">&lt;script&gt;</div>
+    <div class="inline-code">&lt;select&gt;</div>
+    <div class="inline-code">&lt;small&gt;</div>
+    <div class="inline-code">&lt;span&gt;</div>
+    <div class="inline-code">&lt;strong&gt;</div>
+    <div class="inline-code">&lt;sub&gt;</div>
+    <div class="inline-code">&lt;sup&gt;</div>
+    <div class="inline-code">&lt;textarea&gt;</div>
+    <div class="inline-code">&lt;time&gt;</div>
+    <div class="inline-code">&lt;tt&gt;</div>
+    <div class="inline-code">&lt;var&gt;</div>
+</div>
+
+
+
 </body>
 </html>
