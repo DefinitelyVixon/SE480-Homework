@@ -67,6 +67,17 @@ tr:nth-child(even) {
     padding: 10px 16px;
     text-decoration: none;
 }
+.subsection{
+    background-color: #b4b4b4;
+    color: #212121;
+    font-family: inherit;
+    font-size: 17px;
+    float: left;
+    border: thin groove #818181;
+    outline: none;
+    padding: 10px 16px;
+    text-decoration: none;
+}
 .navigation button:hover {
     background-color: #ddd;
     color: black;

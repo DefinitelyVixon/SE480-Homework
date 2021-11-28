@@ -6,6 +6,8 @@
     <title>HTML Documentation</title>
     <script>
         window.onscroll = function() {scrollFunction()};
+        document.addEventListener("load", function(){createSubsections(document.getElementById("navbar"), 0)});
+
         function scrollFunction() {
             if (document.body.scrollTop > 40 || document.documentElement.scrollTop > 40) {
                 document.getElementById("navbar").style.margin = "0px 0px";
@@ -15,35 +17,50 @@
         }
         function openTab(evt, tabName) {
             let i, tabButtons, tabIndex;
-
             tabButtons = document.getElementsByClassName("nav-button");
-
-            //document.getElementById("test").innerHTML = evt.currentTarget.className;  For Testing
-
             let clickedTab = evt.currentTarget.textContent;
+
             // If clicked on a main tab
             if ((clickedTab === "Introduction" || clickedTab === "Basics" || clickedTab === "Attributes")
                 && evt.currentTarget.className !== "nav-button active"){
 
                 document.getElementById("content-frame").src = "tabs/" + tabName + ".html";
+                let parent = document.getElementById("navbar");
 
                 for (i = 0; i < tabButtons.length; i++) {
                     tabButtons[i].className = tabButtons[i].className.replace(" active", "");
 
+                    if (!(tabButtons[i].textContent === "Introduction" ||
+                        tabButtons[i].textContent === "Basics" || tabButtons[i].textContent === "Attributes")){
+                        tabButtons[i].remove();
+                    }
+                }
+                for (i = 0; i < tabButtons.length; i++) {
                     if (tabButtons[i].textContent === evt.currentTarget.textContent){
                         tabIndex = i;
+                        break;
                     }
                 }
                 evt.currentTarget.className += " active";
-                let button = document.createElement('button');
-                let parent = document.getElementById("navbar");
-                button.setAttribute('class', 'nav-button');
-                button.setAttribute('onclick', "openTab(event, 'Subsection')")
-                button.textContent = "Subsection";
-                parent.insertBefore(button, parent.children[tabIndex+1]);
+                createSubsections(parent, tabIndex);
             }
             // If clicked on a subsection
 
+        }
+        function createSubsections(parent, tabIndex){
+
+            let subsections = document.getElementById("content-frame").contentWindow.document.getElementsByTagName("H2");
+            // document.getElementById("test").innerHTML = subsections;
+            let i;
+
+            for (i = subsections.length - 1; i >= 0; i--){
+                let button = document.createElement('button');
+                button.setAttribute('class', 'nav-button');
+                button.setAttribute('onclick', 'openTab(event, "subs"');
+                button.setAttribute('style', 'background-color:#b4b4b4; color:#212121;');
+                button.textContent = subsections[i].innerHTML;
+                parent.insertBefore(button, parent.children[tabIndex+1]);
+            }
         }
         function iframeLoaded() {
             let iFrameID = document.getElementById('content-frame');
@@ -62,12 +79,12 @@
     </span>
 </a>
 <div class="navigation" id="navbar" style="padding-top: 5px">
-    <button class="nav-button active" onclick="openTab(event,'Introduction')">Introduction</button>
-    <button class="nav-button" onclick="openTab(event,'Basics')">Basics</button>
+    <button class="nav-button" onclick="openTab(event,'Introduction')">Introduction</button>
+    <button class="nav-button active" onclick="openTab(event,'Basics')">Basics</button>
     <button class="nav-button" onclick="openTab(event,'Attributes')">Attributes</button>
 </div>
 <div>
-    <iframe src="tabs/Introduction.html" id="content-frame" onload="iframeLoaded()"></iframe>
+    <iframe src="tabs/Basics.html" id="content-frame" onload="iframeLoaded()"></iframe>
 </div>
 </body>
 </html>
